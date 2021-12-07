@@ -8,6 +8,11 @@ body{
     display: flex;
     align-items: center;
 }
+h1{
+    padding-top:2rem ;
+    text-shadow: 1px 1px 2px black;
+
+}
 h2{
     width: 50%;
     font-size: 2rem;
@@ -24,10 +29,19 @@ li{
     font-size: 1.3rem;
 }
 .material-icons:hover{
-    font-size: 1.7rem;
+    font-size: 1.8rem;
 }
 nav{
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     width: 50%;
+}
+.contenedor-productos{
+    margin-top:2rem;
+}
+.card{
+    margin-left: 2rem;
+}
+.card img{
+    height: 350px;
 }
