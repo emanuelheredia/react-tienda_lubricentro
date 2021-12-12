@@ -16,9 +16,9 @@ const ItemCount=({stock,inicial,onAdd})=>{
     return(
         <>
         <div className="d-flex mb-3 justify-content-center">
-        <button className="btn btn-primary" onClick={sumar}>+</button>
-        <h3 className="p-2 border border-primary m-2">{contador}</h3>
-        <button className="btn btn-primary" onClick={restar}>-</button>
+        <button className="p-3 btn btn-primary m-4" onClick={sumar}>+</button>
+        <h3 className="p-3 border border-primary m-4">{contador}</h3>
+        <button className="p-3 btn btn-primary m-4" onClick={restar}>-</button>
         </div>
         <div className="d-flex mb-3 justify-content-center">
         </div>
