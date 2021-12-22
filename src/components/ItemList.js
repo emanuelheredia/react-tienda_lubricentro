@@ -12,7 +12,7 @@ const ItemList =(props)=>{
     }
     ,[producto]);
     return(
-        <div className="contenedor-productos d-flex justify-content-center">
+        <div className="contenedor-productos d-flex justify-content-center flex-wrap">
         {producto.map((e)=> <Item producto={e} key={e.id} />)}
         </div>
         )
