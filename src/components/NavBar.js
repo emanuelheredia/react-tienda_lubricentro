@@ -15,19 +15,19 @@ const NavBar=()=>{
                         <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul className="navbar-nav align-items-lg-center">
                             <li className="nav-item">
-                            <NavLink className="nav-link  text-white" activeClassName="active" aria-current="page" to="/">Home</NavLink>
+                            <NavLink className="nav-link  text-white active"  aria-current="page" to="/">Home</NavLink>
                             </li>
                             <li className="nav-item">
-                            <NavLink className="nav-link  text-white" activeClassName="active" aria-current="page" to="/productos">Productos</NavLink>
+                            <NavLink className="nav-link  text-white active"  aria-current="page" to="/productos">Productos</NavLink>
                             </li>
                             <li className="nav-item">
-                            <NavLink className="nav-link  text-white" activeClassName="active" to="/productos/lubricantes">Lubricantes</NavLink>
+                            <NavLink className="nav-link  text-white active"  to="/productos/lubricantes">Lubricantes</NavLink>
                             </li>
                             <li className="nav-item">
-                            <NavLink className="nav-link  text-white" activeClassName="active" to="/productos/filtros">Filtros</NavLink>
+                            <NavLink className="nav-link  text-white active"  to="/productos/filtros">Filtros</NavLink>
                             </li>
                             <li className="nav-item">
-                            <NavLink className="nav-link  text-white" activeClassName="active" to="/carrito"><CartWidget/></NavLink>
+                            <NavLink className="nav-link  text-white active"  to="/carrito"><CartWidget/></NavLink>
                             </li>
                         </ul>
                         </div>
