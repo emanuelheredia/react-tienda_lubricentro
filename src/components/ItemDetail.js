@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useState } from "react/cjs/react.development";
 import ItemCount from "./ItemCount";
+import { NavLink } from "react-router-dom";
 
 const ItemDetail = (producto)=>{
+
+    let [listaCarrito,setListaCarrito]= useState([]);
+    let [mostrarBotonFinalizar,setMostrarBotonFinalizar]=useState(true)
+    
     const onAdd = (contador)=>{
-        console.log(`Se agregaron ${contador} unidades del producto ${producto.producto.marca}`)
+        console.log(contador)
+        let productoNuevo={"cantidad":contador,"producto":(producto.producto)}
+        setListaCarrito([...listaCarrito, productoNuevo])
+        setMostrarBotonFinalizar(false)
     }
+    
+    useEffect(()=>{
+        localStorage.setItem("Carrito",JSON.stringify(listaCarrito))
+    },[listaCarrito])
+
     const id = producto.producto.id
     return(
         <div className="mt-5 d-flex align-items-center flex-column text-center">
@@ -20,7 +34,7 @@ const ItemDetail = (producto)=>{
                                 <p className="w-100 fs-2 p-5">{producto.producto.descripcion}</p>
                             </div>
                             <h3 className="text-center text-primary card-text fs-1 mt-2">{producto.producto.precio}</h3>
-                            <ItemCount stock={producto.producto.stock} inicial={0} onAdd={onAdd} />
+                            {(mostrarBotonFinalizar===true)?<ItemCount stock={producto.producto.stock} inicial={0} onAdd={onAdd}/>:<NavLink to="../carrito"><button className="btn btn-success p-3 justify-content-center">Finalizar Compra</button></NavLink>}
                         </div>
                     </div>
             </div>)}

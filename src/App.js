@@ -16,6 +16,7 @@ const App= ()=>{
                 <Route exact path= "/productos/:categoria" element={<ItemListContainer/>}/>
                 <Route exact path= "/carrito"element={<Carrito/>}/>
                 <Route exact path= "/producto/:id" element={<ItemDetailContainer/>}/>
+                <Route exact path= "/producto/carrito" element={<Carrito/>}/>
                 <Route exact path="/" element={<Home/>} />
             </Routes>
             </BrowserRouter>
