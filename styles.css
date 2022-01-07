@@ -56,3 +56,12 @@ nav{
 .itemDetalle{
     height: 500px;
 }
+.imgCarrito{
+    width: 100px;
+    height: 150px;
+}
+.cantidadCarrito{
+    width: auto;
+    padding: 3rem;
+    font-size: 2rem;
+}

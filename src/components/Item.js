@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-
 const Item=({producto})=>{
     const id = producto.id
     const detalle=()=>{

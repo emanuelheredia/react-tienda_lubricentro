@@ -5,10 +5,12 @@ import ItemDetailContainer from "./components/ItemDetailContainer";
 import {BrowserRouter,Routes,Route} from "react-router-dom";
 import Home from "./components/Home";
 import Carrito from "./components/Carrito";
+import CartContext from "./components/CartContext"
 
 const App= ()=>{
     return (
             <>
+            <CartContext>
             <BrowserRouter>
             <NavBar/>
             <Routes>
@@ -20,6 +22,7 @@ const App= ()=>{
                 <Route exact path="/" element={<Home/>} />
             </Routes>
             </BrowserRouter>
+            </CartContext>
             </>
             )
 };

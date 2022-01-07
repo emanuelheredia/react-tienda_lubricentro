@@ -3,13 +3,12 @@ import {useState}from "react";
 import "../styles.css";
 
 
-
-const ItemCount=({stock,inicial,onAdd})=>{
+const ItemCount=({stock,inicial,onAddItem})=>{
     
     let [contador,setContador]=useState(inicial);
 
     const onClickAdd=()=>{
-        onAdd(contador);
+        onAddItem(contador);
         setContador(0);
     }
 
