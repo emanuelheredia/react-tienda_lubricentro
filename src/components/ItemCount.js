@@ -1,15 +1,16 @@
 import React from "react";
 import {useState}from "react";
 import "../styles.css";
-
+import { useContexto } from "./CartContext";
 
 const ItemCount=({stock,inicial,onAddItem})=>{
-    
+    const {sumarCantidadTotal}=useContexto()
     let [contador,setContador]=useState(inicial);
 
     const onClickAdd=()=>{
         onAddItem(contador);
         setContador(0);
+        sumarCantidadTotal(contador)
     }
 
     const sumar=()=>{

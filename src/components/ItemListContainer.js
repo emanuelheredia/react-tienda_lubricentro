@@ -8,7 +8,6 @@ const productos=productosJson;
 const ItemListContainer=()=>{
 
     let [listaProductos,setlistaProductos]=useState([]);
-    // let [categoria, setCategoria]=useState()
     
     const {categoria}=useParams()
     useEffect(()=>{
