@@ -13,26 +13,13 @@ const ItemListContainer=()=>{
         const productosCollection=collection(db,"productos")
         if (categoria){
             const consultaCategoria=query(productosCollection,where("categoria","==",categoria))
-            getDocs(consultaCategoria).then((respuesta)=>{
-                const docs=respuesta.docs
-                const listaFirestore=docs.map(docs=>{
-                    const id=docs.id;
-                    const data=docs.data();
-                    const producto={"id":id,...data}
-                    return producto
-                })
-                setlistaProductos(listaFirestore)
+            getDocs(consultaCategoria).then(({docs})=>{
+                setlistaProductos(docs.map(doc=> {return {"id":doc.id,...doc.data()}}))
             }).catch(err=>{console.log(err)})
             }else{
-                getDocs(productosCollection).then((respuesta)=>{
-                    const docs=respuesta.docs
-                    const listaFirestore=docs.map(docs=>{
-                        const id=docs.id;
-                        const data=docs.data();
-                        const producto={"id":id,...data}
-                        return producto
-                    })
-                    setlistaProductos(listaFirestore)
+                getDocs(productosCollection).then(({docs})=>{
+                    setlistaProductos(docs.map(doc=>{return {"id":doc.id,...doc.data()}
+                    }))
                 }).catch(err=>{console.log(err)})
             }
     },[categoria])

@@ -13,9 +13,9 @@ const CartContext=({children})=>{
     const [precioTotal,setPrecioTotal]=useState(0)
 
     const onAdd=(producto)=>{
-        if(isInCarrito(producto.producto.id)){
+        if(isInCarrito(producto.id)){
             producto.cantidad=producto.cantidad+productoDuplicado.cantidad
-            let carritoCopia=carrito.filter(e=>(e.producto.id!==producto.producto.id))
+            let carritoCopia=carrito.filter(e=>(e.id!==producto.id))
             carritoCopia.push(producto)
             setCarrito(carritoCopia)
         }else{
@@ -23,10 +23,10 @@ const CartContext=({children})=>{
         }
     }
     const removeItem=(id)=>{
-        let carritoFiltrado=carrito.filter(e=>(e.producto.id)!==id)
+        let carritoFiltrado=carrito.filter(e=>(e.id)!==id)
         setCarrito(carritoFiltrado)
-        let item= carrito.filter(e=>(e.producto.id)===id)
-        setPrecioTotal(precioTotal-((item[0].cantidad)*Number(item[0].producto.precio)))
+        let item= carrito.filter(e=>(e.id)===id)
+        setPrecioTotal(precioTotal-((item[0].cantidad)*Number(item[0].precio)))
         setCantidadTotal(cantidadTotal-item[0].cantidad)
     }
     const vaciarCarrito=()=>{
@@ -35,7 +35,7 @@ const CartContext=({children})=>{
         setCantidadTotal(0)
     }
     const isInCarrito=(id)=>{
-        productoDuplicado=carrito.find(e=>(e.producto.id)===id)
+        productoDuplicado=carrito.find(e=>(e.id)===id)
         if(productoDuplicado===undefined){
             return false;
         }else{

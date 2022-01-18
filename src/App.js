@@ -6,6 +6,7 @@ import {BrowserRouter,Routes,Route} from "react-router-dom";
 import Home from "./components/Home";
 import Carrito from "./components/Carrito";
 import CartContext from "./components/CartContext"
+import Compra from "./components/Compra";
 
 const App= ()=>{
     return (
@@ -20,6 +21,8 @@ const App= ()=>{
                 <Route exact path= "/producto/:id" element={<ItemDetailContainer/>}/>
                 <Route exact path= "/producto/carrito" element={<Carrito/>}/>
                 <Route exact path="/" element={<Home/>} />
+                <Route exact path="/compra" element={<Compra/>} />
+
             </Routes>
             </BrowserRouter>
             </CartContext>

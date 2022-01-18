@@ -12,7 +12,7 @@ const ItemDetail = ({producto})=>{
     const onAddItem = (contador)=>{
         setContador(contador);
         setMostrarBotonFinalizar(false)
-        let productoNuevo = {"cantidad":contador,"producto":(producto)}
+        let productoNuevo = {"cantidad":contador,...producto}
         onAdd(productoNuevo)
         sumarPrecioTotal({"precio":producto.precio,"cantidad":contador})
     }
