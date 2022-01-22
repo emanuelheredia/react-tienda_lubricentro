@@ -7,7 +7,7 @@ const Item=({producto})=>{
         return "/producto/"+id
     }
     return (
-        <div className="card" >
+        <div className="card card-hover shadow p-3 mb-5 bg-body rounded" >
             <img src={producto.img} alt="..."/>
             <div className="card-body">
                 <h4 className="text-center card-title">{producto.marca}</h4>

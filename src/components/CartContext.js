@@ -1,8 +1,8 @@
 import {createContext, useContext,useState } from "react";
 
 const contexto = createContext();
-let productoDuplicado;
 const {Provider} = contexto;
+let productoDuplicado;
 
 export const useContexto=()=>{
     return useContext(contexto);

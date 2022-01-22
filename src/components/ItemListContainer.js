@@ -26,8 +26,8 @@ const ItemListContainer=()=>{
 
     return (
             <>
-            <h1 className="text-center text-uppercase "> Catálogo  {categoria}</h1>
-            <ItemList productos={listaProductos} />
+                <h1 className="text-center text-uppercase "> Catálogo  {categoria}</h1>
+                <ItemList productos={listaProductos} />
             </>
             )
 }

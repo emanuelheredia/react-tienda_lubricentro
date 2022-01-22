@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useState,useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
 import {db} from "./firebase"
@@ -17,9 +16,7 @@ const ItemDetailContainer = ()=>{
             }).catch(err=>console.log(err))
         },[id])
     return(
-        <>
-        <ItemDetail producto={producto}/>
-        </>
-    )
+            <ItemDetail producto={producto}/>
+          )
 }
 export default ItemDetailContainer;

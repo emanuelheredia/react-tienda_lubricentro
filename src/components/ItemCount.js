@@ -14,10 +14,14 @@ const ItemCount=({stock,inicial,onAddItem})=>{
     }
 
     const sumar=()=>{
-        (contador<stock)?setContador(contador+1):console.log("Sin Stock")
+        if(contador<stock){
+            setContador(contador+1)
+        }
         }
     const restar=()=>{
-        (contador>0)?setContador(contador-1):console.log("Sin productos para restar")
+        if(contador>0){
+            setContador(contador-1)
+        }
         }
     
     return(

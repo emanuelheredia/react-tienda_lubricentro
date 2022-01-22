@@ -25,7 +25,8 @@ h2{
 li{
     list-style: none;
     padding: 1rem 2rem 1rem 2rem;
-    font-size: 1.2rem;
+    font-size: 1rem;
+    text-align: center;
 }
 .nav-link:hover{
     font-size: 1.3rem;
@@ -49,12 +50,16 @@ nav{
     display: flex;
     align-items: center;
 }
+.card-hover:hover{
+    transform: scale(1.05);
+}
 .card img{
     height: 200px;
     width: 180px;
 }
 .itemDetalle{
-    height: 500px;
+    height: 400px;
+    overflow: hidden;
 }
 .imgCarrito{
     width: 100px;
@@ -72,7 +77,8 @@ h5{
 }
 form{
     border: solid 2px;
-    margin: 1rem 10rem 1rem 10rem;
+    margin: 4rem 10rem 4rem 10rem;
+    width: 60%;
 }
 form input{
     width: 50%;
