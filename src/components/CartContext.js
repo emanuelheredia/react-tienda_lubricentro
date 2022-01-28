@@ -8,23 +8,43 @@ export const useContexto=()=>{
     return useContext(contexto);
 }
 const CartContext=({children})=>{
-    const [cantidadTotal,setCantidadTotal]=useState(0);
-    const [carrito,setCarrito]=useState([]);
-    const [precioTotal,setPrecioTotal]=useState(0)
-
+    const [cantidadTotal,setCantidadTotal]=useState(sumarCantidadTotalStorage());
+    const [carrito,setCarrito]=useState(((sessionStorage.getItem("Carrito")!==null))?(JSON.parse(sessionStorage.getItem("Carrito"))):[]);
+    const [precioTotal,setPrecioTotal]=useState((sumarPrecioTotalStorage()))
+    
+    function sumarPrecioTotalStorage(){
+        if(sessionStorage.getItem("Carrito")!==null){
+            let carritoStorage=JSON.parse(sessionStorage.getItem("Carrito"))
+            let sumaPrecioTotalStorage=0;
+            for(let i=0;i<carritoStorage.length;i++){sumaPrecioTotalStorage+=(carritoStorage[i].cantidad*carritoStorage[i].precio)}
+            return sumaPrecioTotalStorage;
+        }else{return 0}
+    }
+    function sumarCantidadTotalStorage(){
+        if(sessionStorage.getItem("Carrito")!==null){
+            let carritoStorage=JSON.parse(sessionStorage.getItem("Carrito"))
+            let sumaCantidadTotalStorage=0;
+            for(let i=0;i<carritoStorage.length;i++){sumaCantidadTotalStorage+=carritoStorage[i].cantidad}
+            return sumaCantidadTotalStorage;
+        }else{return 0}
+    }
     const onAdd=(producto)=>{
         if(isInCarrito(producto.id)){
             producto.cantidad=producto.cantidad+productoDuplicado.cantidad
             let carritoCopia=carrito.filter(e=>(e.id!==producto.id))
             carritoCopia.push(producto)
+            sessionStorage.setItem("Carrito",JSON.stringify(carritoCopia))
             setCarrito(carritoCopia)
         }else{
         setCarrito([...carrito,producto])
+        sessionStorage.setItem("Carrito",JSON.stringify([...carrito,producto]))
         }
     }
     const removeItem=(id)=>{
         let carritoFiltrado=carrito.filter(e=>(e.id)!==id)
         setCarrito(carritoFiltrado)
+        sessionStorage.clear("carrito")
+        sessionStorage.setItem("Carrito",JSON.stringify(carritoFiltrado))
         let item= carrito.filter(e=>(e.id)===id)
         setPrecioTotal(precioTotal-((item[0].cantidad)*Number(item[0].precio)))
         setCantidadTotal(cantidadTotal-item[0].cantidad)
@@ -33,6 +53,7 @@ const CartContext=({children})=>{
         setCarrito([])
         setPrecioTotal(0)
         setCantidadTotal(0)
+        sessionStorage.clear()
     }
     const isInCarrito=(id)=>{
         productoDuplicado=carrito.find(e=>(e.id)===id)
@@ -42,8 +63,11 @@ const CartContext=({children})=>{
             return true;
         }
     }
-    const sumarPrecioTotal=({precio,cantidad})=>{
-        setPrecioTotal(precioTotal+(Number(precio)*cantidad)) 
+    const sumarPrecioTotal=()=>{
+        let carritoStorage=JSON.parse(sessionStorage.getItem("Carrito"))
+        let sumaPrecioTotalStorage=0;
+        for(let i=0;i<carritoStorage.length;i++){sumaPrecioTotalStorage+=(carritoStorage[i].cantidad*carritoStorage[i].precio)}
+        setPrecioTotal(sumaPrecioTotalStorage) 
     }
     const sumarCantidadTotal=(contador)=>{
         setCantidadTotal(cantidadTotal+contador)

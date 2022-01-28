@@ -8,16 +8,11 @@ const Compra=()=>{
     const {vaciarCarrito,carrito,precioTotal}=useContexto()
     const [mostrarFormulario,setMostrarFormulario]=useState(true)
     const [datosCompra,setDatosCompra]=useState()
-    const [datosComprador,setDatosComprador]=useState({});
 
-    const recibirInfoComprador=(info)=>{
-        setDatosComprador(info)
-    }
-    const terminarCompra=(e)=>{
-        e.preventDefault()
+    const terminarCompra=(infoComprador)=>{
         const ventaColeccion=collection(db,"ventas")
         addDoc(ventaColeccion,{
-            buyer:datosComprador,
+            buyer:infoComprador,
             items:carrito,
             date:serverTimestamp(),
             total:precioTotal
@@ -42,7 +37,7 @@ const Compra=()=>{
 
     return (
         <>  
-            {(mostrarFormulario)?<div className="d-flex flex-column align-items-center"><Formulario recibirInfoComprador={recibirInfoComprador}/><button onClick={terminarCompra} className="btn btn-success p-3 justify-content-center w-30 m-2">Finalizar Compra</button></div>:(<div className="d-flex flex-column align-items-center m-5 border border-primary bg-primary"><h1 className="text-white">FELICITACIONES! COMPRA EXITOSA</h1>
+            {(mostrarFormulario)?<div className="d-flex flex-column align-items-center"><Formulario terminarCompra={terminarCompra}/></div>:(<div className="d-flex flex-column align-items-center m-5 border border-primary bg-primary"><h1 className="text-white">FELICITACIONES! COMPRA EXITOSA</h1>
             <h2 className="mt-5 text-center text-warning">ID DE COMPRA: {datosCompra[0].id} </h2>
             <h1 className=" mb-5  text-center text-white">Total a pagar: $ {datosCompra[0].total}
             </h1>

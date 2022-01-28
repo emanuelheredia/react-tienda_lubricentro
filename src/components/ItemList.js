@@ -5,14 +5,14 @@ const ItemList =(props)=>{
     let producto=props.productos
     useEffect(()=>{
         return(
-        <div className="contenedor-productos d-flex justify-content-center">
+        <div className="contenedor-productos d-flex justify-content-center margen-superior">
         {producto.map((e)=> <Item productos={e} key={e.id} />)}
         </div>
         )
     }
     ,[producto]);
     return(
-        <div className="contenedor-productos d-flex justify-content-center flex-wrap">
+        <div className="contenedor-productos d-flex justify-content-center flex-wrap margen-superior">
         {producto.map((e)=> <Item producto={e} key={e.id} />)}
         </div>
         )

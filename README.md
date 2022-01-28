@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# E-Commerce de productos para el automotor
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Esta aplicación Web fue creado como proyecto durante el curso de React JS brindado por la Institución CODER HOUSE. 
 
-## Available Scripts
+## Resúmen del proyecto
 
-In the project directory, you can run:
+E-Commerce de productos relacionados al rubro automotor, con la opcion de agregar items (o quitarlos luego) al carrito de compras, conocer el detalle de los mismos y filtrar por categorías. Una vez efectuada la compra, en la sección "Mis Ordenes" se puede consultar por id de la misma, el detalle en cualquier momento.   
 
-### `npm start`
+## Video Demo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![Demonstration web](./assets/app.gif)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Características
 
-### `npm test`
+* Filtrado por categorías de Items.
+* Almacenamiento de productos en base de datos vía Firebase - Firestore.
+* Almacenamiento de datos venta (productos adquirirdos,datos de comprador y actualización de stock automática) vía Firebase - Firestore.
+* Carrito e info de compra persistente mediante el almacenamiento en Session Storage del usuario 
+* Consulta en cualquier momento mediante ID de compra del detalle de la misma. 
+* Uso de componentes independientes en cada sección
+* Utilización de Hooks de estados, efectos, rutas y contexto que optimizan la aplicación. 
+* Contador dinámico de cada Item adquirido en ícono de Carrito
+* Formulario para cargar datos del Comprador y asociar a los datos de la compra
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tecnologías utilizadas
 
-### `npm run build`
+* HTML-CSS
+* Javascript
+* React JS
+* Bootstrap 
+* Firebase-Firestore
+* Node JS
+* Git & GitHub
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Detalle de Componentes Principales
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* ItemListContainer :  Recibe del Firestore de manera Asyncrona la info del listado total del productos con sus características correspondientes. Permite el filtrado según categoría.
+* ItemList : Mapea los datos recibidos por contexto y renderiza la info mediante el componente Item
+* ItemDetailContainer : Recibe del Firestore de manera Asyncrona la info del producto consultado según ID del mismo. 
+* ItemDetail : Renderiza la información del producto en forma de card ampliada, donde muestra ademas mediante el componente "ItemCount" el stock del producto, boton para sumar y  restar cantida a adquirir y botón para redirigirse al Carrito
+* CartContext: Establece contexto con estados a manipular y la lógica de la mayoría de las ejecuciones por parte del Usuario en cada componente.   
+* firebase: Configuración inicial y keys de Firebase. Establecimiento de variables compartidas por varios componentes.
+* Carrito: Renderiza un detalle resumido de los productos almacenados en el estado "Carrito"
+* Mis Órdenes: Renderiza el detalle de la compra efectuada y almacenada en coleccion "ventas" del Firestore según ID ingesado por Usuario.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Ejecutando este Proyecto
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. Abre la terminal de Git
+2. Cambia el directorio de trabajo actual a la ubicación en donde quieres clonar el directorio:
+``` cd proyecto ```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Escribe git clone seguido de la [URL](https://github.com/emanuelheredia/react-tienda_lubricentro) del proyecto:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```git clone https://github.com/emanuelheredia/react-tienda_lubricentro ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+4. Presiona Enter para crear tu clon local:
+>$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+> Cloning into `Spoon-Knife`...
+> remote: Counting objects: 10, done.
+> remote: Compressing objects: 100% (8/8), done.
+> remove: Total 10 (delta 1), reused 10 (delta 1)
+> Unpacking objects: 100% (10/10), done.
 
-## Learn More
+5. Instalar todas las dependencias necesarias dentro del directorio del proyecto:
+``` npm install ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+6. Por último inicia el proyecto con npm start donde se iniciará el dashboard de expo en el navegador:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+``` npm start ```

@@ -5,7 +5,6 @@ import { getDocs, collection, query, where } from "firebase/firestore";
 import {db} from "./firebase"
 
 const ItemListContainer=()=>{
-    
     let [listaProductos,setlistaProductos]=useState([]);
     const {categoria}=useParams()
     
@@ -23,7 +22,6 @@ const ItemListContainer=()=>{
                 }).catch(err=>{console.log(err)})
             }
     },[categoria])
-
     return (
             <>
                 <h1 className="text-center text-uppercase "> Catálogo  {categoria}</h1>

@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom";
 
 const NavBar=()=>{
         return (
-            <div className="encabezado shadow p-3 bg-primary container-fluid">
+            <div className="encabezado shadow bg-primary container-fluid">
                 <NavLink className="col-md-7 text-white text-decoration-none"  to="/"><h2 className="col-md-7 text-white ">LUBRICANTES H&H</h2></NavLink>
                 <nav className="navbar navbar-expand-lg navbar-light">
                     <div className="container justify-content-end">

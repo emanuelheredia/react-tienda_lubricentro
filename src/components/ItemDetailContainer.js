@@ -17,6 +17,6 @@ const ItemDetailContainer = ()=>{
         },[id])
     return(
             <ItemDetail producto={producto}/>
-          )
+    )
 }
 export default ItemDetailContainer;
