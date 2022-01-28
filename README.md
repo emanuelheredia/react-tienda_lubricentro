@@ -8,7 +8,7 @@ E-Commerce de productos relacionados al rubro automotor, con la opcion de agrega
 
 ## Video Demo
 
-![Demonstration web](./assets/app.gif)
+![Demonstration web](src/assets/app.gif)
 
 ## Características
 
