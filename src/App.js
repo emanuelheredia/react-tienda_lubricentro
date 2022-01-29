@@ -10,21 +10,22 @@ import MisOrdenes from "./components/MisOrdenes"
 import Compra from "./components/Compra";
 
 const App= ()=>{
+    
     return (
             <CartContext>
-            <BrowserRouter>
-            <NavBar/>
-            <Routes>
-                <Route exact path= "/productos/" element={<ItemListContainer/>}/>
-                <Route exact path= "/productos/:categoria" element={<ItemListContainer/>}/>
-                <Route exact path= "/carrito"element={<Carrito/>}/>
-                <Route exact path= "/producto/:id" element={<ItemDetailContainer/>}/>
-                <Route exact path="/misordenes" element={<MisOrdenes/>} />
-                <Route exact path= "/producto/carrito" element={<Carrito/>}/>
-                <Route exact path="/" element={<Home/>} />
-                <Route exact path="/compra" element={<Compra/>} />
-            </Routes>
-            </BrowserRouter>
+                <BrowserRouter>
+                    <NavBar/>
+                    <Routes>
+                        <Route exact path= "/productos/" element={<ItemListContainer/>}/>
+                        <Route exact path= "/productos/:categoria" element={<ItemListContainer/>}/>
+                        <Route exact path= "/carrito"element={<Carrito/>}/>
+                        <Route exact path= "/producto/:id" element={<ItemDetailContainer/>}/>
+                        <Route exact path="/misordenes" element={<MisOrdenes/>} />
+                        <Route exact path= "/producto/carrito" element={<Carrito/>}/>
+                        <Route exact path="/" element={<Home/>} />
+                        <Route exact path="/compra" element={<Compra/>} />
+                    </Routes>
+                </BrowserRouter>
             </CartContext>
             )
 };

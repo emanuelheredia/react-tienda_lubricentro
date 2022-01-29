@@ -12,16 +12,21 @@ const ItemListContainer=()=>{
         const productosCollection=collection(db,"productos")
         if (categoria){
             const consultaCategoria=query(productosCollection,where("categoria","==",categoria))
-            getDocs(consultaCategoria).then(({docs})=>{
-                setlistaProductos(docs.map(doc=> {return {"id":doc.id,...doc.data()}}))
-            }).catch(err=>{console.log(err)})
-            }else{
-                getDocs(productosCollection).then(({docs})=>{
-                    setlistaProductos(docs.map(doc=>{return {"id":doc.id,...doc.data()}
+            getDocs(consultaCategoria)
+                    .then(({docs})=>{
+                        setlistaProductos(docs.map(doc=> {return {"id":doc.id,...doc.data()}}))
+                    })
+                    .catch(err=>{console.log(err)})
+        }else{
+            getDocs(productosCollection)
+                    .then(({docs})=>{
+                        setlistaProductos(docs.map(doc=>{return {"id":doc.id,...doc.data()}
                     }))
-                }).catch(err=>{console.log(err)})
+                })
+                    .catch(err=>{console.log(err)})
             }
     },[categoria])
+
     return (
             <>
                 <h1 className="text-center text-uppercase "> Catálogo  {categoria}</h1>

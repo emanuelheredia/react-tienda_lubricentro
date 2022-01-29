@@ -17,13 +17,13 @@ const Compra=()=>{
             date:serverTimestamp(),
             total:precioTotal
         })
-            const consultaCompra=query(ventaColeccion,where("items","==",carrito))
-            getDocs(consultaCompra).then(({docs})=>{
-                setDatosCompra(docs.map(doc=> {
-                    return {"id":doc.id,...doc.data()}}))
-                setMostrarFormulario(false)
-                vaciarCarrito();
-            }).catch(err=>{console.log(err)})
+        const consultaCompra=query(ventaColeccion,where("items","==",carrito))
+        getDocs(consultaCompra).then(({docs})=>{
+            setDatosCompra(docs.map(doc=> {
+                return {"id":doc.id,...doc.data()}}))
+            setMostrarFormulario(false)
+            vaciarCarrito();
+        }).catch(err=>{console.log(err)})
     }
     useEffect(()=>{
         if(datosCompra!==undefined){
@@ -37,12 +37,13 @@ const Compra=()=>{
 
     return (
         <>  
-            {(mostrarFormulario)?<div className="d-flex flex-column align-items-center"><Formulario terminarCompra={terminarCompra}/></div>:(<div className="d-flex flex-column align-items-center m-5 border border-primary bg-primary"><h1 className="text-white">FELICITACIONES! COMPRA EXITOSA</h1>
-            <h2 className="mt-5 text-center text-warning">ID DE COMPRA: {datosCompra[0].id} </h2>
-            <h1 className=" mb-5  text-center text-white">Total a pagar: $ {datosCompra[0].total}
-            </h1>
-            </div>)
-            }
+            {(mostrarFormulario)
+                                ?<div className="d-flex flex-column align-items-center"><Formulario terminarCompra={terminarCompra}/></div>
+                                :(<div className="d-flex flex-column align-items-center m-5 border border-primary bg-primary">
+                                    <h1 className="text-white">FELICITACIONES! COMPRA EXITOSA</h1>
+                                    <h2 className="mt-5 text-center text-warning">ID DE COMPRA: {datosCompra[0].id} </h2>
+                                    <h1 className=" mb-5  text-center text-white">Total a pagar: $ {datosCompra[0].total}</h1>
+                                </div>)}
         </>
     )
 }

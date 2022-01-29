@@ -26,18 +26,20 @@ const CartContext=({children})=>{
             let sumaCantidadTotalStorage=0;
             for(let i=0;i<carritoStorage.length;i++){sumaCantidadTotalStorage+=carritoStorage[i].cantidad}
             return sumaCantidadTotalStorage;
-        }else{return 0}
+        }else{
+            return 0
+        }
     }
     const onAdd=(producto)=>{
         if(isInCarrito(producto.id)){
-            producto.cantidad=producto.cantidad+productoDuplicado.cantidad
-            let carritoCopia=carrito.filter(e=>(e.id!==producto.id))
-            carritoCopia.push(producto)
-            sessionStorage.setItem("Carrito",JSON.stringify(carritoCopia))
-            setCarrito(carritoCopia)
+                producto.cantidad=producto.cantidad+productoDuplicado.cantidad
+                let carritoCopia=carrito.filter(e=>(e.id!==producto.id))
+                carritoCopia.push(producto)
+                sessionStorage.setItem("Carrito",JSON.stringify(carritoCopia))
+                setCarrito(carritoCopia)
         }else{
-        setCarrito([...carrito,producto])
-        sessionStorage.setItem("Carrito",JSON.stringify([...carrito,producto]))
+                setCarrito([...carrito,producto])
+                sessionStorage.setItem("Carrito",JSON.stringify([...carrito,producto]))
         }
     }
     const removeItem=(id)=>{
@@ -83,9 +85,10 @@ const CartContext=({children})=>{
         sumarPrecioTotal,
         sumarCantidadTotal
     }
+    
     return (
         <Provider value={valorDelCarrito}>
-        {children}
+            {children}
         </Provider>
         )
 }
