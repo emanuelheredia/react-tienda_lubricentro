@@ -20,11 +20,28 @@ const MisOrdenes=()=>{
         })
     }
     return(
-        (mostrarConsulta)?<div className="d-flex flex-column align-items-center m-5 shadow p-3 mb-5 bg-body rounded"><h2 className="text-center">ID : {idCompra} </h2> <div className="d-flex flex-column align-items-center m-3">{consulta.items.map(
+        (mostrarConsulta)?<div className="d-flex flex-column align-items-center m-5 shadow p-3 mb-5 bg-body rounded"><h2 className="text-center">ID : {idCompra} </h2> <div className="d-flex flex-column align-items-center m-3">
+            <table className="table table-success table-striped">
+        <thead>
+            <tr>
+            <th scope="col">Item</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Precio Unitario</th>
+            <th scope="col">Cantidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            {consulta.items.map(
             (e,index)=>{ return (
-                <h3 key={index} className="fs-4">Item {index+1} : {(e.categoria.toUpperCase())} {e.marca} {e.tipo} - Precio unitario: ${e.precio} - Cantidad: {e.cantidad} </h3>
-                )}
-        )}<h2 className="m-4 text-center">Total : ${consulta.total} </h2></div></div>:
+            <tr key={index}>
+            <th scope="row">{index+1}</th>
+            <td>{(e.categoria.toUpperCase())} {e.marca} {e.tipo}</td>
+            <td>$ {e.precio}</td>
+            <td>{e.cantidad}</td>
+            </tr>)})}
+        </tbody>
+        </table>
+        <h2 className="m-4 text-center">Total : ${consulta.total} </h2></div></div>:
         (<div className="d-flex flex-column align-items-center">
         <h1 className="text-center m-3">Tus Órdenes</h1>
         <input onChange={handleInputChange} placeholder="Ingrese Código Compra" className="m-4 w-50 text-center"/>
