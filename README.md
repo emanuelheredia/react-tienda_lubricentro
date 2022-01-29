@@ -2,6 +2,8 @@
 
 Esta aplicación Web fue creado como proyecto durante el curso de React JS brindado por la Institución CODER HOUSE. 
 
+[Acceso a App](https://zen-hypatia-2e2918.netlify.app/)
+
 ## Resúmen del proyecto
 
 E-Commerce de productos creado con "CREATE-REACT-APP" relacionados al rubro automotor, con la opcion de agregar items (o quitarlos luego) al carrito de compras, conocer el detalle de los mismos y filtrar por categorías. Una vez efectuada la compra, en la sección "Mis Ordenes" se puede consultar por id de la misma, el detalle en cualquier momento.
