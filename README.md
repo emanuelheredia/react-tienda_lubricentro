@@ -22,7 +22,7 @@ E-Commerce de productos creado con "CREATE-REACT-APP" relacionados al rubro auto
 * Uso de componentes independientes en cada sección
 * Utilización de Hooks de estados, efectos, rutas y contexto que optimizan la aplicación. 
 * Contador dinámico de cada Item adquirido en ícono de Carrito
-* Formulario para cargar datos del Comprador y asociar a los datos de la compra
+* Formulario para cargar datos del Comprador y asociar a los datos de la compra con verificación de mail.
 
 ## Tecnologías utilizadas
 
