@@ -2,7 +2,7 @@
 
 Esta aplicación Web fue creado como proyecto durante el curso de React JS brindado por la Institución CODER HOUSE. 
 
-[Acceso a App](https://zen-hypatia-2e2918.netlify.app/)
+[Acceso a App](https://loving-kalam-56699a.netlify.app/)
 
 ## Resúmen del proyecto
 
